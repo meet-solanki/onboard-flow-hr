@@ -8,6 +8,9 @@ import Home from "./pages/Home";
 import AddEmployee from "./pages/AddEmployee";
 import Dashboard from "./pages/Dashboard";
 import EmployeeProfile from "./pages/EmployeeProfile";
+import ModernHome from "./pages/ModernHome";
+import ModernDashboard from "./pages/ModernDashboard";
+import ModernAddEmployee from "./pages/ModernAddEmployee";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +26,9 @@ const App = () => (
           <Route path="/add-employee" element={<AddEmployee />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/employee/:id" element={<EmployeeProfile />} />
+          <Route path="/modern" element={<ModernHome />} />
+          <Route path="/modern-dashboard" element={<ModernDashboard />} />
+          <Route path="/modern-add-employee" element={<ModernAddEmployee />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
