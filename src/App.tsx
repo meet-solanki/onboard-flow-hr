@@ -22,7 +22,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ModernHome />} />
           <Route path="/add-employee" element={<AddEmployee />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/employee/:id" element={<EmployeeProfile />} />

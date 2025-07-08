@@ -23,9 +23,9 @@ const ModernHome = () => {
             <h1 className="text-2xl font-bold text-white">Smart HR</h1>
           </div>
           <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="text-white/80 hover:text-white transition-colors">Home</Link>
-            <Link to="/add-employee" className="text-white/80 hover:text-white transition-colors">Add Employee</Link>
-            <Link to="/dashboard" className="text-white/80 hover:text-white transition-colors">Dashboard</Link>
+            <Link to="/modern" className="text-white/80 hover:text-white transition-colors">Home</Link>
+            <Link to="/modern-add-employee" className="text-white/80 hover:text-white transition-colors">Add Employee</Link>
+            <Link to="/modern-dashboard" className="text-white/80 hover:text-white transition-colors">Dashboard</Link>
           </nav>
         </header>
 
@@ -56,13 +56,13 @@ const ModernHome = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                to="/add-employee"
+                to="/modern-add-employee"
                 className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300 text-center"
               >
                 Add Employee
               </Link>
               <Link
-                to="/dashboard"
+                to="/modern-dashboard"
                 className="bg-blue-600/80 backdrop-blur-sm border border-blue-400/50 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 text-center"
               >
                 View Dashboard
@@ -70,10 +70,10 @@ const ModernHome = () => {
             </div>
           </div>
 
-          {/* Right Content - Floating Cards */}
-          <div className="relative">
-            {/* Employee Status Card */}
-            <div className="absolute top-0 right-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-64">
+          {/* Right Content - Floating Cards matching template */}
+          <div className="relative h-[600px]">
+            {/* Employee Grid Card */}
+            <div className="absolute top-0 right-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-64 transform rotate-1">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-gray-800">Employees</h3>
                 <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
@@ -82,13 +82,20 @@ const ModernHome = () => {
               </div>
               <div className="grid grid-cols-5 gap-2 mb-4">
                 {[...Array(25)].map((_, i) => (
-                  <div key={i} className={`w-6 h-6 rounded ${i % 3 === 0 ? 'bg-red-200' : i % 4 === 0 ? 'bg-green-200' : 'bg-gray-100'}`}></div>
+                  <div 
+                    key={i} 
+                    className={`w-6 h-6 rounded ${
+                      i % 3 === 0 ? 'bg-red-200' : 
+                      i % 4 === 0 ? 'bg-green-200' : 
+                      i % 5 === 0 ? 'bg-blue-200' : 'bg-gray-100'
+                    }`}
+                  ></div>
                 ))}
               </div>
             </div>
 
             {/* Projects Card */}
-            <div className="absolute top-32 left-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-48">
+            <div className="absolute top-32 left-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-48 transform -rotate-2">
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
                   <Target className="w-6 h-6 text-orange-600" />
@@ -99,7 +106,7 @@ const ModernHome = () => {
             </div>
 
             {/* Employee Count Card */}
-            <div className="absolute bottom-32 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-48">
+            <div className="absolute bottom-32 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-48 transform rotate-2">
               <div className="flex items-center justify-between mb-4">
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
                   <Users className="w-6 h-6 text-orange-600" />
@@ -109,8 +116,8 @@ const ModernHome = () => {
               <div className="text-gray-600">Employees</div>
             </div>
 
-            {/* Task Notifications */}
-            <div className="absolute top-64 left-16 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-white/20 w-72">
+            {/* Notification Cards */}
+            <div className="absolute top-64 left-16 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-white/20 w-72 transform -rotate-1">
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -124,11 +131,11 @@ const ModernHome = () => {
             </div>
 
             {/* Time Tracking Card */}
-            <div className="absolute bottom-0 left-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-80">
+            <div className="absolute bottom-0 left-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-80 transform rotate-1">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-semibold text-gray-800">Time Tracking</h3>
-                <div className="w-8 h-8 bg-blue-500 rounded-full">
-                  <User className="w-4 h-4 text-white m-2" />
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                  <Clock className="w-4 h-4 text-white" />
                 </div>
               </div>
               <div className="space-y-3">
@@ -146,7 +153,7 @@ const ModernHome = () => {
             </div>
 
             {/* Profile Card */}
-            <div className="absolute top-16 right-32 bg-blue-600 text-white rounded-2xl p-6 shadow-2xl w-64">
+            <div className="absolute top-16 right-32 bg-blue-600 text-white rounded-2xl p-6 shadow-2xl w-64 transform -rotate-1">
               <div className="flex items-center justify-between mb-4">
                 <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
                   <div className="w-4 h-1 bg-white rounded"></div>
