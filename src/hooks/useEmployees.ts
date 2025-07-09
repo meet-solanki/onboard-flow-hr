@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/useAuth';
 
 export interface Employee {
   id: string;
@@ -25,6 +26,7 @@ export const useEmployees = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+  const { user } = useAuth();
 
   const fetchEmployees = async () => {
     setLoading(true);
@@ -47,11 +49,23 @@ export const useEmployees = () => {
     }
   };
 
-  const addEmployee = async (employeeData: Omit<Employee, 'id' | 'created_at' | 'created_by'>) => {
+  const addEmployee = async (employeeData: Pick<Employee, 'name' | 'email' | 'role'>) => {
+    if (!user) {
+      toast({
+        title: "Error",
+        description: "You must be logged in to add employees",
+        variant: "destructive"
+      });
+      return { data: null, error: new Error('Not authenticated') };
+    }
+
     try {
       const { data, error } = await supabase
         .from('employees')
-        .insert([employeeData])
+        .insert([{
+          ...employeeData,
+          created_by: user.id
+        }])
         .select()
         .single();
 
