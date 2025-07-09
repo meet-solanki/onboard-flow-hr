@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Target, Calendar, Clock, User, CheckCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle, Users, Target, Calendar, Zap } from 'lucide-react';
 
 const ModernHome = () => {
   return (
@@ -14,8 +14,8 @@ const ModernHome = () => {
 
       <div className="relative z-10 container mx-auto px-4 py-8">
         {/* Header */}
-        <header className="flex items-center justify-between mb-12">
-          <div className="flex items-center space-x-6">
+        <header className="flex items-center justify-between mb-16">
+          <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
               <Target className="w-6 h-6 text-white" />
             </div>
@@ -25,190 +25,85 @@ const ModernHome = () => {
             to="/auth"
             className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300"
           >
-            Get Started
+            Sign In
           </Link>
         </header>
 
         {/* Hero Section */}
         <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Streamline Your
-            <br />
-            <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
-              HR Onboarding
+            <span className="block bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+              Employee Onboarding
             </span>
           </h2>
-          <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Transform your employee onboarding experience with our modern, intuitive platform designed for the future of work.
+          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Transform your HR processes with our intelligent onboarding platform. 
+            Track progress, manage tasks, and ensure every new hire has a smooth start.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/auth"
-              className="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
             >
-              Start Free Trial
+              <span>Get Started</span>
+              <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/dashboard"
-              className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300"
+              className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-200"
             >
-              View Dashboard
+              View Demo
             </Link>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-                HR, Payroll,<br />
-                Project, Accounts<br />
-                & Employee
-              </h2>
-              <p className="text-xl text-white/80 mb-4">Management System</p>
-              <p className="text-lg text-white/70 mb-8">Ionic Mobile App Template</p>
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
+            <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+              <Users className="w-7 h-7 text-white" />
             </div>
-
-            <div className="flex items-center space-x-4">
-              <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                </div>
-              </div>
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
-                <CheckCircle className="w-8 h-8 text-white" />
-              </div>
-              <span className="text-white/80 text-lg">React & Ionic</span>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/modern-add-employee"
-                className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300 text-center"
-              >
-                Add Employee
-              </Link>
-              <Link
-                to="/modern-dashboard"
-                className="bg-blue-600/80 backdrop-blur-sm border border-blue-400/50 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 text-center"
-              >
-                View Dashboard
-              </Link>
-            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Role-Based Access</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Secure dashboards for admins and employees with appropriate access controls and permissions.
+            </p>
           </div>
 
-          {/* Right Content - Floating Cards matching template */}
-          <div className="relative h-[600px]">
-            {/* Employee Grid Card */}
-            <div className="absolute top-0 right-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-64 transform rotate-1">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-gray-800">Employees</h3>
-                <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                  <Users className="w-4 h-4 text-orange-600" />
-                </div>
-              </div>
-              <div className="grid grid-cols-5 gap-2 mb-4">
-                {[...Array(25)].map((_, i) => (
-                  <div 
-                    key={i} 
-                    className={`w-6 h-6 rounded ${
-                      i % 3 === 0 ? 'bg-red-200' : 
-                      i % 4 === 0 ? 'bg-green-200' : 
-                      i % 5 === 0 ? 'bg-blue-200' : 'bg-gray-100'
-                    }`}
-                  ></div>
-                ))}
-              </div>
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
+            <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+              <CheckCircle className="w-7 h-7 text-white" />
             </div>
-
-            {/* Projects Card */}
-            <div className="absolute top-32 left-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-48 transform -rotate-2">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                  <Target className="w-6 h-6 text-orange-600" />
-                </div>
-              </div>
-              <div className="text-3xl font-bold text-gray-800 mb-1">140</div>
-              <div className="text-gray-600">Projects</div>
-            </div>
-
-            {/* Employee Count Card */}
-            <div className="absolute bottom-32 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-48 transform rotate-2">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                  <Users className="w-6 h-6 text-orange-600" />
-                </div>
-              </div>
-              <div className="text-3xl font-bold text-gray-800 mb-1">14</div>
-              <div className="text-gray-600">Employees</div>
-            </div>
-
-            {/* Notification Cards */}
-            <div className="absolute top-64 left-16 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-white/20 w-72 transform -rotate-1">
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Appointment booking with p...</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Patient appointment booking</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Time Tracking Card */}
-            <div className="absolute bottom-0 left-0 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20 w-80 transform rotate-1">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-gray-800">Time Tracking</h3>
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <Clock className="w-4 h-4 text-white" />
-                </div>
-              </div>
-              <div className="space-y-3">
-                {[...Array(4)].map((_, i) => (
-                  <div key={i} className="flex items-center justify-between text-sm">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-gray-700">Punch In</span>
-                    </div>
-                    <span className="text-gray-500">10:00:00 AM</span>
-                  </div>
-                ))}
-                <div className="text-orange-500 text-sm font-medium">06:00:00 hours</div>
-              </div>
-            </div>
-
-            {/* Profile Card */}
-            <div className="absolute top-16 right-32 bg-blue-600 text-white rounded-2xl p-6 shadow-2xl w-64 transform -rotate-1">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                  <div className="w-4 h-1 bg-white rounded"></div>
-                </div>
-                <div className="flex space-x-1">
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4 mb-4">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-lg font-semibold">New HR</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <User className="w-6 h-6 text-gray-600" />
-                </div>
-                <div>
-                  <div className="text-white font-medium">John Doe</div>
-                  <div className="text-blue-200 text-sm">Android Developer</div>
-                </div>
-              </div>
-            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Progress Tracking</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Real-time tracking of onboarding tasks and milestones with visual progress indicators.
+            </p>
           </div>
+
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
+            <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-6">
+              <Zap className="w-7 h-7 text-white" />
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Automated Workflows</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Streamlined processes that automatically assign tasks and track completion status.
+            </p>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center bg-white/95 backdrop-blur-sm rounded-2xl p-12 shadow-2xl border border-white/20">
+          <h3 className="text-3xl font-bold text-gray-800 mb-4">Ready to Transform Your HR Process?</h3>
+          <p className="text-gray-600 mb-8 text-lg">
+            Join companies that have streamlined their employee onboarding with Smart HR.
+          </p>
+          <Link
+            to="/auth"
+            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-200 inline-flex items-center space-x-2 shadow-lg"
+          >
+            <span>Start Free Trial</span>
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </div>

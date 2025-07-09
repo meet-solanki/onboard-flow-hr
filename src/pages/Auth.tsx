@@ -20,14 +20,19 @@ const Auth = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   
-  const { signIn, signUp, user } = useAuth();
+  const { signIn, signUp, user, userProfile } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      navigate('/dashboard');
+    if (user && userProfile) {
+      // Redirect based on user role
+      if (userProfile.role === 'admin') {
+        navigate('/admin-dashboard');
+      } else {
+        navigate('/employee-dashboard');
+      }
     }
-  }, [user, navigate]);
+  }, [user, userProfile, navigate]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
