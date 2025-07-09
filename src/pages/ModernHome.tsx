@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Target, Calendar, Clock, User, CheckCircle } from 'lucide-react';
@@ -16,18 +15,47 @@ const ModernHome = () => {
       <div className="relative z-10 container mx-auto px-4 py-8">
         {/* Header */}
         <header className="flex items-center justify-between mb-12">
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-6">
             <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
               <Target className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-2xl font-bold text-white">Smart HR</h1>
           </div>
-          <nav className="hidden md:flex space-x-6">
-            <Link to="/modern" className="text-white/80 hover:text-white transition-colors">Home</Link>
-            <Link to="/modern-add-employee" className="text-white/80 hover:text-white transition-colors">Add Employee</Link>
-            <Link to="/modern-dashboard" className="text-white/80 hover:text-white transition-colors">Dashboard</Link>
-          </nav>
+          <Link
+            to="/auth"
+            className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300"
+          >
+            Get Started
+          </Link>
         </header>
+
+        {/* Hero Section */}
+        <div className="text-center mb-20">
+          <h2 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            Streamline Your
+            <br />
+            <span className="bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
+              HR Onboarding
+            </span>
+          </h2>
+          <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Transform your employee onboarding experience with our modern, intuitive platform designed for the future of work.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/auth"
+              className="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Start Free Trial
+            </Link>
+            <Link
+              to="/dashboard"
+              className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300"
+            >
+              View Dashboard
+            </Link>
+          </div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
